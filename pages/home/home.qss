@@ -191,6 +191,8 @@
 }
 
 .schoolActiveHeadRight {
+    align-items: center;
+    display: flex;
     height: 44rpx;
     line-height: 44rpx;
     padding-left: 8rpx;
@@ -200,7 +202,21 @@
     color: #fff;
 }
 
+.schoolActiveHeadRightText {
+    max-width: 375rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
 .schoolActiveHeadRightTurn {
+    width: 15rpx;
+    height: 20rpx;
+    margin-left: 26rpx;
+}
+
+.schoolActiveHeadRightTurn1 {
     width: 15rpx;
     height: 20rpx;
     margin-left: 26rpx;

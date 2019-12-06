@@ -9,7 +9,7 @@ Page({
         contentImgUrls:[],//海报的链接数组
         indicatorDots: true, //是否显示面板指示点
         autoplay: true, //是否自动切换
-        interval: 2000, //自动切换时间间隔,2s
+        interval: 3000, //自动切换时间间隔,2s
         duration: 300,
         animation:{},
         fixedBtn:false,
@@ -62,12 +62,12 @@ Page({
                     data.poster[i] = localUlr+data.poster[i];
                 }
                 data.association.icon=localUlr+data.association.icon;
-                if(/heic$/i.test(data.association.icon)) {
+                if(/heic$/i.test(data.association.icon) || data.association.icon === localUlr || typeof data.association.icon === 'undefined' ) {
                     data.association.icon = '/static/img/default.svg'
                 }
                 that.setData({
                     activityName:data.name==undefined?'暂无更多信息~':data.name,
-                    data_start:(data.date_start==undefined?'暂无更多信息':data.date_start)+'~'+(data.date_end==undefined?'':data.date_end),
+                    data_start:(data.date_start==undefined?'暂无更多信息':data.date_start.replace(/-/g, '.'))+'~'+(data.date_end==undefined?'':data.date_end.replace(/-/g, '.')),
                     association:data.association==undefined?'暂无更多信息~':data.association,
                     contentImgUrls:data.poster==undefined?[]:data.poster,
                     // groupId:data.qq_group==undefined?'':data.qq_group,

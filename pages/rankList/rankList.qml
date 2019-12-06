@@ -2,7 +2,7 @@
     <view class="head">
         <view class="left">
             <view class="title">排行榜</view>
-            <view class="date">西南科技大学校园社团活动详情</view>
+            <view class="date">西南科技大学校园活动详情</view>
 
         </view>
         <view class="right">
@@ -32,7 +32,7 @@
                     <view class="contentRight">
                         <view class="contentTitle">{{item.title}}</view>
                         <view class="contentDown">
-                            {{item.auto}}
+                            <text class="contentDownText">{{item.auto}}</text>
                             <button data-link="{{item.link}}" class="joinIn" bindtap="join">立即参加</button>
                         </view>
                     </view>

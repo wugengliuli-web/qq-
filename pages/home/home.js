@@ -91,10 +91,15 @@ Page({
                         data = data.map(item => {
                             let { date_start, date_end, id, name, tag, association, poster } = item
                             tag = tag.map(v => v.name)
-                            let logo = localUlr + association.icon
+                            let logo
+                            if(association.icon) {
+                                logo = localUlr + association.icon
+                            } else {
+                                logo = localUlr
+                            }
                             return {
-                                data_start: date_start,
-                                data_end: date_end,
+                                data_start: date_start.replace(/-/g, '.'),
+                                data_end: date_end.replace(/-/g, '.'),
                                 tag,
                                 content: name,
                                 title: association.name,
@@ -129,11 +134,16 @@ Page({
                         data.reverse()
                         data = data.map(item => {
                             let { id, name, poster, association } = item
-                            let icon =  localUlr + association.icon
+                            let icon
+                            if(association.icon) {
+                                icon = localUlr + association.icon
+                            } else {
+                                icon = localUlr
+                            }
                             return {
                                 url: '/pages/introduction/introduction?id=' + association.id,
                                 link: '/pages/Content/content?id=' + id,
-                                logoUrl: icon === '' || /heic$/i.test(icon) ? '/static/img/default.svg' : icon,
+                                logoUrl: icon === localUlr || /heic$/i.test(icon) ? '/static/img/default.svg' : icon,
                                 imgUrl: localUlr + poster[0],
                                 title: association.name,
                                 content: name
@@ -216,11 +226,16 @@ Page({
                     data = data.map(item => {
                         let { date_start, date_end, id, name, tag, association, poster } = item
                         tag = tag.map(v => v.name)
-                        let logo = localUlr + association.icon
+                        let logo
+                        if(association.icon) {
+                            logo = localUlr + association.icon
+                        } else {
+                            logo = localUlr
+                        }
                         
                         return {
-                            data_start: date_start,
-                            data_end: date_end,
+                            data_start: date_start.replace(/-/g, '.'),
+                            data_end: date_end.replace(/-/g, '.'),
                             tag,
                             content: name,
                             title: association.name,

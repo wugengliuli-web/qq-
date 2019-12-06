@@ -10,9 +10,7 @@
         >
 
             <swiper-item class="imgContainer" qq:for="{{banner}}" qq:key="{{item.id}}">
-                <navigator url="{{item.url}}">
-                    <image src="{{item.img}}" class="{{Index === index? 'slide-image slide-show':'slide-image'}}"/>
-                </navigator>
+                <image src="{{item.img}}" class="{{Index === index? 'slide-image slide-show':'slide-image'}}"/>
             </swiper-item>
         </swiper>
     </view>
@@ -47,8 +45,8 @@
                         <image class="schoolActiveHeadLeftLogo" src="{{item.logoUrl}}"></image>
                     </view>
                     <navigator class="schoolActiveHeadRight" url="{{item.url}}">
-                        <text>{{item.title}}</text>
-                        <image class="schoolActiveHeadRightTurn" src="{{whiteTurn}}"></image>
+                        <text class="schoolActiveHeadRightText">{{item.title}}</text>
+                        <image class="schoolActiveHeadRightTurn1" src="{{whiteTurn}}"></image>
                     </navigator>
                 </view>
                 <navigator url="{{item.link}}">

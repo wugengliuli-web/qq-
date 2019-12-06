@@ -16,7 +16,7 @@
     </swiper>
     <view class="activityTitle">
         <view class="activityName">
-            <view style="width:8rpx;height:32rpx;margin-top:3rpx;background:rgba(199, 13, 58, 1)"></view>
+            <view style="width:8rpx;height:40rpx;margin-top:3rpx;background:rgba(199, 13, 58, 1)"></view>
             <text class="activityNameText">{{activityName}}</text>
         </view>
         <view class="NumberSort">
@@ -28,7 +28,7 @@
             <navigator url="/pages/introduction/introduction?id={{association.id}}">
                 <view style="min-width:100rpx;padding-right:15rpx;height:44rpx;background:rgba(199, 13, 58, 1);display:flex;">
                     <text class="IdName">{{association.name}}</text>
-                    <image src="/static/img/0000.svg" style="height:14rpx;width:10.7rpx;margin-top:15rpx;margin-left:2rpx;"></image>
+                    <image src="/static/img/0000.svg" style="height:14rpx;width:10.7rpx;margin-top:15rpx;margin-left:26rpx;"></image>
                 </view>
             </navigator>
         </view>

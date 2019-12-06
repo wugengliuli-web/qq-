@@ -5,18 +5,18 @@
             <view class="wrap-mask">
             </view>
         </view>
+        <view class="associationTitle">
+            <view class="associationName">{{AssociationName}}</view>
+            <view class="associationSlogan">{{AssociationSlogan}}</view>
+        </view>
     </view>
     <view class="backHome" bindtap="backHomePage">
         <image class="backImg" src="../../static/img/0000.svg"></image>
         <text class="backHomeContent">前往首页</text>
     </view>
-    <view class="associationTitle">
-        <view class="associationName">{{AssociationName}}</view>
-        <view class="associationSlogan">{{AssociationSlogan}}</view>
-    </view>
     <view hidden="{{scrollTop==1?flase:true}}" style="width:100%;height:120rpx;"></view>
     <view class="{{scrollTop==1?'onTop':''}}" id="introductionTab">
-        <view class="introductionBtn {{_active==1?'active':'disable'}}" bindtap="changeIntroduction"><text style="display:block;line-height:107rpx;width:100%;text-align:center;">协会介绍</text></view>
+        <view class="introductionBtn {{_active==1?'active':'disable'}}" bindtap="changeIntroduction"><text style="display:block;line-height:107rpx;width:100%;text-align:center;">相关介绍</text></view>
         <view class="lastesBtn {{_active==2?'active':'disable'}}" bindtap="changeLatest"><text style="display:block;line-height:107rpx;width:100%;text-align:center;">近期活动</text></view>
     </view>
     <view style="width:100%;height:13rpx;background:white;" class="{{scrollTop==1?'onTopSlider':''}}">

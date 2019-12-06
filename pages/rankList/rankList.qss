@@ -39,6 +39,7 @@ page {
     color: #fff;
     font-size: 24rpx;
     margin-top: 40rpx;
+    letter-spacing: 10rpx;
 }
 .rank {
     width: 683rpx;
@@ -159,6 +160,16 @@ page {
     color: #878787;
     font-size: 22rpx;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.contentDownText {
+    display: inline-block;
+    width: 280rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .joinIn {

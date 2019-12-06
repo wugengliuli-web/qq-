@@ -22,11 +22,10 @@ swiper-item{
 }
 .activityName{
     display: flex;
-    height: 34rpx;
+    
 }
 .activityNameText{
     display: block;
-    height: 34rpx;
     width: 661rpx;
     margin-left:18rpx;
     font-size:34rpx;

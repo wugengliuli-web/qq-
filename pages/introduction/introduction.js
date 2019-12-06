@@ -38,7 +38,7 @@ Page({
         this.setData({
             choseId:e.id==undefined?e.introductionid:e.id,
         })          
-        let token = qq.getStorageSync('token')  
+        let token = qq.getStorageSync('token')
         qq.request({
             url: localUlr + '/api/queryAssociation?association_id='+this.data.choseId + '&token=' + token,
             method:'GET',
@@ -66,6 +66,11 @@ Page({
             method:'POST',
             success(res){
                 var data = res.data.data;
+                data = data.map(item => {
+                    item.date_end = item.date_end.replace(/-/g, '.')
+                    item.date_start = item.date_start.replace(/-/g, '.')
+                    return item
+                })
                 data.reverse()
                 for(var i = 0;i<data.length;i++){
                     data[i].file = localUlr + data[i].file;
@@ -95,23 +100,30 @@ Page({
         if(this.data.isAll) {
             return
         }
+        let { activityIndex } = this.data
+        activityIndex++
         let token = qq.getStorageSync('token')
         let that = this
         qq.showLoading({
             title: '请稍等呦~',
         })
         qq.request({
-            url: localUlr + '/api/association/queryActivityList?id=' + this.data.choseId + '&page_num='+this.data.activityIndex+'&page_count=10' + '&token=' + token,
+            url: localUlr + '/api/association/queryActivityList?id=' + this.data.choseId + '&page_num='+activityIndex+'&page_count=10' + '&token=' + token,
             method:'POST',
             success(res){
                 qq.hideLoading()
-                if(res.data.length == 0){
+                if(res.data.data.length == 0){
                     that.setData({
                         isAll:true
                     })
                     return
                 }
                 var data = res.data.data;
+                data = data.map(item => {
+                    item.date_end = item.date_end.replace(/-/g, '.')
+                    item.date_start = item.date_start.replace(/-/g, '.')
+                    return item
+                })
                 for(var i = 0;i<data.length;i++){
                     data[i].file = localUlr + data[i].file;
                     for(var j = 0;j<data[i].poster.length;j++){
@@ -120,7 +132,7 @@ Page({
                 }
                 that.setData({      
                     acticityData:[...that.data.acticityData,...data],
-                    activityIndex:activityIndex+1
+                    activityIndex:activityIndex
                 })                
             },
             fail(res) {

@@ -15,5 +15,8 @@
   "groupIdList": [
     "695628567",
     "957361810"
-  ]
+  ],
+  "networkTimeout": {
+    "request": 3000
+  }
 }

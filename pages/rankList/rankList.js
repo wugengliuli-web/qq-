@@ -33,11 +33,13 @@ Page({
                 let { list } = that.data
                 if(result) {
                     let List = data.map(item => {
-                        return {
-                            url: localUlr + item.poster[0],
-                            title: item.name,
-                            auto: item.association.name,
-                            link: '/pages/Content/content?id=' + item.id
+                        if(item.name) {
+                            return {
+                                url: localUlr + item.poster[0],
+                                title: item.name,
+                                auto: item.association.name,
+                                link: '/pages/Content/content?id=' + item.id
+                            }
                         }
                     })
                     that.setData({
@@ -60,7 +62,7 @@ Page({
         qq.showShareMenu({
             showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment'],
             withShareTicket:true,
-          })
+        })
     },
     onShareAppMessage() {
         return({
@@ -76,7 +78,7 @@ Page({
         })
     },
     onReachBottom() {
-        if(isAll) {
+        if(this.data.isAll) {
             return
         }
         qq.showLoading({
@@ -101,6 +103,7 @@ Page({
                 qq.hideLoading()
                 let { data, result } = res.data
                 let { list } = that.data
+                console.log(list)
                 if(result) {
                     if(data.length === 0) {
                         that.setData({
@@ -110,17 +113,20 @@ Page({
                     }
                     data.reverse()
                     let List = data.map(item => {
-                        return {
-                            url: item.poster[0],
-                            title: item.name,
-                            auto: 'aaa',
-                            link: '/pages/Content/content?id=' + item.id
+                        if(item.name) {
+                            return {
+                                url: localUlr + item.poster[0],
+                                title: item.name,
+                                auto: 'aaa',
+                                link: '/pages/Content/content?id=' + item.id
+                            }
                         }
                     })
                     that.setData({
                         status: 'success',
                         list: [...list, ...List],
-                        rankWrapper: List.length !== 0
+                        rankWrapper: List.length !== 0,
+                        index
                     })
                 } else {
                     that.setData({
